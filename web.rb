@@ -28,7 +28,7 @@ end
 
 before do
   uri = URI(request.url)
-  if uri.path != '/bunbunjanken.mp3'
+  if ! (uri.path =~ %r`^/bunbunjanken`)
     protect!
   end
 end
