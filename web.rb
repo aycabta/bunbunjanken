@@ -8,6 +8,9 @@ configure do
   set :static, true
   set :public_folder, "#{File.dirname(__FILE__)}/public"
   enable :run
+  use Rack::Auth::Basic do |username, password|
+    username == ENV['BASIC_AUTH_USERNAME'] && password == ENV['BASIC_AUTH_PASSWORD']
+  end
 end
 
 get '/' do
