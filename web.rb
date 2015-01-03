@@ -43,7 +43,7 @@ post '/yumewotukameyoutube' do
     :from => ENV['TWILIO_NUMBER'],
     :to => params[:to_number],
     # Fetch instructions from this URL when the call connects
-    :url => 'http://bunbunjanken.herokuapp.com/bunbunjanken'
+    :url => "#{ENV['HEROKU_URL']}/bunbunjanken"
   )
   redirect "/", 302
 end
