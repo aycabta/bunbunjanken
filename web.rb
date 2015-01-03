@@ -42,7 +42,6 @@ post '/yumewotukameyoutube' do
   client.account.calls.create(
     :from => ENV['TWILIO_NUMBER'],
     :to => params[:to_number],
-    # Fetch instructions from this URL when the call connects
     :url => "#{ENV['HEROKU_URL']}/bunbunjanken"
   )
   redirect "/", 302
