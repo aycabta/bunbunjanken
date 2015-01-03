@@ -8,8 +8,28 @@ configure do
   set :static, true
   set :public_folder, "#{File.dirname(__FILE__)}/public"
   enable :run
-  use Rack::Auth::Basic do |username, password|
-    username == ENV['BASIC_AUTH_USERNAME'] && password == ENV['BASIC_AUTH_PASSWORD']
+end
+
+helpers do
+  def protect!
+    unless authorized?
+      response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
+      throw(:halt, [401, "Not authorized\n"])
+    end
+  end
+
+  def authorized?
+    @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    username = ENV['BASIC_AUTH_USERNAME']
+    password = ENV['BASIC_AUTH_PASSWORD']
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [username, password]
+  end
+end
+
+before do
+  uri = URI(request.url)
+  if uri.path != '/bunbunjanken.mp3'
+    protect!
   end
 end
 
