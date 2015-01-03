@@ -14,6 +14,16 @@ get '/' do
   slim :index
 end
 
+post '/yumewotukameyoutube' do
+  client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
+  client.account.calls.create(
+    :from => ENV['TWILIO_NUMBER'],
+    :to => params[:to_number],
+    # Fetch instructions from this URL when the call connects
+    :url => 'http://bunbunjanken.herokuapp.com/bunbunjanken'
+  )
+  redirect "/", 302
+end
 
 bunbunjanken = proc do
   Twilio::TwiML::Response.new do |r|
