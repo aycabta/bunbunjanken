@@ -1,31 +1,37 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    builder (3.2.2)
-    daemons (1.2.4)
-    eventmachine (1.2.0.1)
-    jwt (1.5.4)
-    multi_json (1.12.1)
-    rack (1.6.4)
-    rack-protection (1.5.3)
+    daemons (1.2.6)
+    eventmachine (1.2.5)
+    faraday (0.14.0)
+      multipart-post (>= 1.2, < 3)
+    jwt (2.1.0)
+    mini_portile2 (2.3.0)
+    multipart-post (2.0.0)
+    mustermann (1.0.2)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    rack (2.0.4)
+    rack-protection (2.0.1)
       rack
-    sinatra (1.4.7)
-      rack (~> 1.5)
-      rack-protection (~> 1.4)
-      tilt (>= 1.3, < 3)
-    slim (3.0.7)
-      temple (~> 0.7.6)
+    sinatra (2.0.1)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.1)
+      tilt (~> 2.0)
+    slim (3.0.9)
+      temple (>= 0.7.6, < 0.9)
       tilt (>= 1.3.3, < 2.1)
-    temple (0.7.7)
-    thin (1.7.0)
+    temple (0.8.0)
+    thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
       rack (>= 1, < 3)
-    tilt (2.0.5)
-    twilio-ruby (4.11.1)
-      builder (>= 2.1.2)
-      jwt (~> 1.0)
-      multi_json (>= 1.3.0)
+    tilt (2.0.8)
+    twilio-ruby (5.7.0)
+      faraday (~> 0.9)
+      jwt (>= 1.5, <= 2.5)
+      nokogiri (>= 1.6, < 2.0)
 
 PLATFORMS
   ruby
@@ -37,4 +43,4 @@ DEPENDENCIES
   twilio-ruby
 
 BUNDLED WITH
-   1.12.5
+   1.16.1
