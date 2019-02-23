@@ -13,4 +13,3 @@ Bunbun Hello Twilio.
 * HEROKU_URL
 
 This needs no accounting for, so you must read source code and Twilio documents.
-

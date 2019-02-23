@@ -55,4 +55,3 @@ end
 
 get('/bunbunjanken') { bunbunjanken.() }
 post('/bunbunjanken') { bunbunjanken.() }
-
