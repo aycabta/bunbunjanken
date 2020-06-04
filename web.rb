@@ -48,9 +48,9 @@ post '/yumewotukameyoutube' do
 end
 
 bunbunjanken = proc do
-  Twilio::TwiML::Response.new do |r|
-    r.Play 'http://bunbunjanken.herokuapp.com/bunbunjanken.mp3'
-  end.text
+  Twilio::TwiML::VoiceResponse.new do |r|
+    r.play 'http://bunbunjanken.herokuapp.com/bunbunjanken.mp3'
+  end.to_xml
 end
 
 get('/bunbunjanken') { bunbunjanken.() }
