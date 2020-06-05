@@ -39,7 +39,7 @@ end
 
 post '/yumewotukameyoutube' do
   client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
-  client.account.calls.create(
+  client.calls.create(
     :from => ENV['TWILIO_NUMBER'],
     :to => params[:to_number],
     :url => "#{ENV['HEROKU_URL']}/bunbunjanken"
@@ -49,7 +49,7 @@ end
 
 bunbunjanken = proc do
   Twilio::TwiML::VoiceResponse.new do |r|
-    r.play 'http://bunbunjanken.herokuapp.com/bunbunjanken.mp3'
+    r.play url: 'http://bunbunjanken.herokuapp.com/bunbunjanken.mp3'
   end.to_xml
 end
 
