@@ -4,4 +4,4 @@ gem 'thin'
 gem 'slim'
 gem 'twilio-ruby'
 
-ruby '2.7.1'
+ruby '2.7.2'
